@@ -1,0 +1,542 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head><meta charset="UTF-8">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"><title>SQL · Kartik&#39;s Notebook</title><meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="description" content="Offload the brain.
+"><meta name="generator" content="Jekyll (using style of GitBook 3.2.3)"><meta name="author" content="Kartik Pradeepan"><link rel="stylesheet" href="/assets/gitbook/style.css">
+<link rel="stylesheet" href="/assets/gitbook/gitbook-plugin-fontsettings/website.css">
+<link rel="stylesheet" href="/assets/gitbook/gitbook-plugin-search-pro/search.css">
+<link rel="stylesheet" href="/assets/gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+
+<link rel="stylesheet" href="/assets/gitbook/rouge/colorful.css">
+
+<link rel="stylesheet" href="/assets/gitbook/custom.css">
+<link rel="stylesheet" href="/assets/gitbook/custom-local.css">
+
+<meta name="HandheldFriendly" content="true"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="/assets/gitbook/images/apple-touch-icon-precomposed-152.png">
+<link rel="shortcut icon" href="//assets/gitbook/images/favicon.ico" type="image/x-icon">
+
+
+
+
+            <link rel="prev" href="/" />
+        
+
+        
+    </head>
+    <body>
+        <div class="book"><div class="book-summary">
+    <script type="text/javascript">
+        // Fixes the page links scroll problem on both desktop and mobile browsers
+        function pageScrollToTop(element) {
+            // both mobile and non-mobile
+            $('div.body-inner').animate({scrollTop: 0});
+            $(element).parent().find('li>ul>li').removeClass('active');
+            return true;  // propagate
+        }
+        // Fixes the anchor links scroll problem on mobile browsers
+        function mobilePageScrollToAnchor(element) {
+            $(element).closest('li.chapter').find('ul>li').removeClass('active');
+            $(element).parent().addClass('active');
+            if ($(document).width() <= 1240) {
+                $('div.body-inner').animate({scrollTop: $($(element).attr('href')).get(0).offsetTop});
+            }
+            return true;
+        }
+    </script>
+
+    <nav role="navigation">
+        <div id="book-search-input" role="search">
+            <input type="text" placeholder="Type to search" />
+        </div>
+        <div id="book-search-input-link" role="search">
+            <a href="/assets/search.html">Click to Search</a>
+        </div>
+        <ul class="summary">
+            
+            <li class="chapter" data-level="1.1" data-path="">
+            
+                <a href="/" onclick="pageScrollToTop(this)">
+                    Kartik&#39;s Notebook
+                </a>
+            </li>
+
+            <li class="divider"></li>
+
+            
+                <!-- <p>pages</p> -->
+                
+                    
+
+                    
+                        
+                        <li class="chapter" data-level="1.1" data-path="/pages/about/">
+                        
+                            <a href="/pages/about/" onclick="pageScrollToTop(this)">
+                                About
+                            </a>
+                            
+                                
+                            
+                        </li>
+                    
+                        
+                        <li class="chapter" data-level="1.1" data-path="/pages/contact/">
+                        
+                            <a href="/pages/contact/" onclick="pageScrollToTop(this)">
+                                Contact
+                            </a>
+                            
+                                
+                            
+                        </li>
+                    
+                        
+                        <li class="chapter" data-level="1.1" data-path="/pages/design/draft/">
+                        
+                            <a href="/pages/design/draft/" onclick="pageScrollToTop(this)">
+                                Design Draft
+                            </a>
+                            
+                                
+                            
+                        </li>
+                    
+
+                    
+                        <li class="divider"></li>
+                    
+                
+            
+                <!-- <p>posts</p> -->
+                
+                    
+
+                    
+                        
+                        <li class="chapter active" data-level="1.2" data-path="/jekyll/2024-01-05-SQL.html">
+                        
+                            <a href="/jekyll/2024-01-05-SQL.html" onclick="pageScrollToTop(this)">
+                                SQL
+                            </a>
+                            
+                                
+                                    <ul><li><a href="#1-selecting-and-retrieving-data-with-sql" onclick="mobilePageScrollToAnchor(this)" >1 Selecting and Retrieving Data with SQL</a><ul><li><a href="#11-what-is-sql" onclick="mobilePageScrollToAnchor(this)" >1.1 What is SQL?</a></li><li><a href="#12-data-models" onclick="mobilePageScrollToAnchor(this)" >1.2 Data Models</a></li><li><a href="#13-retrieving-data-with-a-select-statement" onclick="mobilePageScrollToAnchor(this)" >1.3 Retrieving data with a SELECT statement</a></li><li><a href="#14-creating-tables" onclick="mobilePageScrollToAnchor(this)" >1.4 Creating tables</a><ul><li><a href="#141-nulls-and-primary-keys" onclick="mobilePageScrollToAnchor(this)" >1.4.1 Nulls and primary keys</a></li><li><a href="#142-adding-data-to-the-table" onclick="mobilePageScrollToAnchor(this)" >1.4.2 Adding data to the table</a></li><li><a href="#143-creating-temporary-tables" onclick="mobilePageScrollToAnchor(this)" >1.4.3 Creating temporary tables</a></li><li><a href="#144-adding-comments-to-sql" onclick="mobilePageScrollToAnchor(this)" >1.4.4 Adding comments to SQL</a></li></ul></li><li><a href="#15-star-schema-vs-snowflake-schema" onclick="mobilePageScrollToAnchor(this)" >1.5 Star Schema vs Snowflake Schema</a><ul><li><a href="#151-first-difference-normalization" onclick="mobilePageScrollToAnchor(this)" >1.5.1 First difference: Normalization</a></li><li><a href="#152-second-difference-query-complexity" onclick="mobilePageScrollToAnchor(this)" >1.5.2 Second difference: Query complexity</a></li></ul></li></ul></li><li><a href="#2-filtering-sorting-and-calculating-data-with-sql" onclick="mobilePageScrollToAnchor(this)" >2 Filtering, Sorting, and Calculating Data with SQL</a><ul><li><a href="#21-basics-of-filtering-with-sql" onclick="mobilePageScrollToAnchor(this)" >2.1 Basics of Filtering with SQL</a><ul><li><a href="#211-where-clause-operator" onclick="mobilePageScrollToAnchor(this)" >2.1.1 WHERE clause operator</a></li></ul></li><li><a href="#22-advanced-filtering-in-or-not" onclick="mobilePageScrollToAnchor(this)" >2.2 Advanced Filtering: IN, OR, NOT</a></li></ul></li></ul>
+
+                                
+                            
+                        </li>
+                    
+
+                    
+                        <li class="divider"></li>
+                    
+                
+            
+        </ul>
+    </nav>
+</div>
+<div class="book-body">
+                <div class="book-header" role="navigation">
+                    <!-- Title -->
+                    <h1>
+                        <i class="fa fa-circle-o-notch fa-spin"></i>
+                        
+                            <a href="." >SQL</a>
+                        
+                    </h1>
+                </div>
+
+                <div class="body-inner"><div class="page-wrapper" tabindex="-1" role="main">
+    
+
+    <div class="page-inner">
+        <div id="book-search-results">
+            <div class="search-noresults">
+                <section class="normal markdown-section">
+                    
+                        <h1 id="/jekyll/SQL">SQL</h1>
+                    
+
+                    <h1 id="1-selecting-and-retrieving-data-with-sql">1 Selecting and Retrieving Data with SQL</h1>
+
+<h2 id="11-what-is-sql">1.1 What is SQL?</h2>
+<p>Structured Query Language (SQL): standard computer language for data management and data manipulation. It is the way you can communicate with databases. It is a non-procedural language, meaning you cannot write complete applications with it however you will be able to read, write, and update data.</p>
+
+<p>Just because SQL is the language you are using, there are differences in the syntax depending on the database management system (DBMS) you are using.</p>
+
+<h2 id="12-data-models">1.2 Data Models</h2>
+<p>Databases: a container to store organized data; a set of related information.</p>
+
+<p>Tables: a structured list of data or a specific type.</p>
+<ul>
+  <li>Columns: a single field in a table</li>
+  <li>Rows: a record in a table</li>
+</ul>
+
+<p>What is data modelling? Organizes and structures information into multiple, related tables. Can represent a business process or show relationships between business processes. <em>Data models should closely represent the real world processes</em></p>
+
+<p>NoSQL (not only SQL): a mechanism for storage and retrieval of unstructured data modelled by means other than tabular relations in relational databases.</p>
+
+<p>All relational models have an entity, attribute, and relationship.</p>
+<ul>
+  <li>Entity: person, place, thing, or event. Distinguishable, unique and distinct.</li>
+  <li>Attribute: characterstic of an entity.</li>
+  <li>Relationship: describes association among entities (e.g., one-to-many, many-to-many, one-to-one)</li>
+</ul>
+
+<p>ER diagrams depict the relationships between tables. Helps represent business processes. Joined by primary-foreign keys.</p>
+<ul>
+  <li>Primary keys: a column (or set of columns) whose values uniquely identify every row in a table.</li>
+  <li>Foriegn key: one or more columns that can be used together to identify a single row in another table.</li>
+  <li>Different types of notation (Chen Notation, Crow’s Foot Notation, UML Class Diagram Notation)</li>
+</ul>
+
+<h2 id="13-retrieving-data-with-a-select-statement">1.3 Retrieving data with a SELECT statement</h2>
+
+<p>The select statement you need to specific what you want and where you want it from.</p>
+
+<pre><code class="language-SQL">SELECT item1,
+        item2,
+        item3
+FROM tableName;
+</code></pre>
+<p>Selects items 1-3 from tableName.</p>
+
+<pre><code class="language-SQL">SELECT *
+FROM tableName;
+</code></pre>
+<p>Selects all items from tableName.</p>
+
+<p>A lot of times you want to limit results (e.g., when the database is large). To select a sample from the database.</p>
+
+<pre><code class="language-SQL">SELECT columnsYouWantToSee
+FROM tableName
+LIMIT 5;
+</code></pre>
+<p>Will show you the first 5 columns you want to see from tableName.</p>
+
+<p>*Note: LIMITS have different syntaxes across DBMS.</p>
+
+<h2 id="14-creating-tables">1.4 Creating tables</h2>
+
+<p>Creating tables is useful if you want to extract data from other sources.</p>
+
+<pre><code class="language-SQL">CREATE TABLE tableName (
+    Id   char(10)    PRIMARY KEY,
+    Variable1   char(10)    NOT NULL,
+    Variable2   char(250)   NOT NULL,
+    Variable3   decimal(8,2)  NOT NULL,
+    Variable4   Varchar(750)    NULL
+);
+</code></pre>
+<h3 id="141-nulls-and-primary-keys">1.4.1 Nulls and primary keys</h3>
+<p>Every column is either NULL or NOT NULL. You will receive an error if you omit this with no value. *Note: Do not confuse null values with empty strings**. Primary keys cannot be null.</p>
+
+<p>Primary keys MUST have a value.</p>
+
+<h3 id="142-adding-data-to-the-table">1.4.2 Adding data to the table</h3>
+<p>Two ways described below.</p>
+
+<pre><code class="language-SQL">INSERT INTO tableName
+VALUES ('000001', 
+    'StringValue1', 
+    'Stringvalue2', 
+    '10.45', 
+    NULL
+    );
+</code></pre>
+<p>Using INSERT. This is not a recommended way because you are manually inserting values into columns and if you mess up the order, the entry will be wrong.</p>
+
+<pre><code class="language-SQL">INSERT INTO tableName (
+    Id, 
+    Variable1, 
+    Variable2, 
+    Variable3, 
+    Variable4
+    )
+VALUES (
+    '000001', 
+    'StringValue1', 
+    'Stringvalue2', 
+    '10.45', 
+    NULL
+    );
+</code></pre>
+<p>Now you are guaranteeing that the values are going into the right column.</p>
+
+<h3 id="143-creating-temporary-tables">1.4.3 Creating temporary tables</h3>
+<p>Temporary tables will be deleted when the current session is terminated. Faster than creating a real table. Useful for complex queries using subsets and joints.</p>
+
+<pre><code class="language-SQL">CREATE TEMPORARY TABLE tmpTableName AS (
+    SELECT *
+    FROM tableName
+    WHERE variableName1 = "conditionalString"
+);
+</code></pre>
+<p>Depending on the DBMS, you will not be able to write data to temporary tables.</p>
+
+<h3 id="144-adding-comments-to-sql">1.4.4 Adding comments to SQL</h3>
+<p>Mutes the expression of code. Also helps you remember what and why you were doing.</p>
+
+<p>Two ways to add comments</p>
+
+<p>Single line comments</p>
+<pre><code class="language-SQL">SELECT variableName1,
+--variableName2,
+variableName3
+from tableName
+</code></pre>
+<p>The above comments out variableName2.</p>
+
+<p>Section comments</p>
+<pre><code class="language-SQL">SELECT variableName1,
+/* variableName2,
+variableName3 */
+from tableName
+</code></pre>
+<p>The above comments out variableName2, and variableName3.</p>
+
+<h2 id="15-star-schema-vs-snowflake-schema">1.5 Star Schema vs Snowflake Schema</h2>
+
+<p>These are two types of datawarehouse models. They are ways to organize data using relational databases.</p>
+
+<p>Star schema: Aggregated central fact table that contains relationships to dimension tables.</p>
+
+<p>Snowflake schema: Stores the same data as the star schema however the main difference is that the dimensional tables in the snowflake schema are normalized producing <em>snowflaking</em>.</p>
+
+<h3 id="151-first-difference-normalization">1.5.1 First difference: Normalization</h3>
+
+<p>Snowflake schemas will use less space to store dimension tables because normalized databases produce far fewer redundant records. As a result of this, denormalized data models increase the chance of data integrity issues where records across dimension tables start to vary.</p>
+
+<h3 id="152-second-difference-query-complexity">1.5.2 Second difference: Query complexity</h3>
+
+<p>Snowflake schemas, because the dimension tables are normalized, require more complex querying. In star schema, you will only join the fact table with dimension tables you need - you will only have one JOIN per dimension table. In snowflake schema querying, you will need to use multiple joins to find the right dimension. Because of this, querying takes slightly longer in snowflake schema however the absolute difference is meaningless (e.g., 1ms vs 1s).</p>
+
+<p><a href="https://www.vertabelo.com/blog/data-warehouse-modeling-star-schema-vs-snowflake-schema/">Source for snowflake vs star schema</a></p>
+
+<h1 id="2-filtering-sorting-and-calculating-data-with-sql">2 Filtering, Sorting, and Calculating Data with SQL</h1>
+
+<h2 id="21-basics-of-filtering-with-sql">2.1 Basics of Filtering with SQL</h2>
+
+<p>Allows you to narrow the data you want to retrieve, reduce the number of records you retrieve, increase query performance, reduce the strain on the client application, and governance limitations.</p>
+
+<h3 id="211-where-clause-operator">2.1.1 WHERE clause operator</h3>
+<pre><code class="language-SQL">SELECT *
+FROM tableName
+WHERE columnName operator value;
+</code></pre>
+
+<p>List of operators:</p>
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">=</code> equal</li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;&gt;</code> not equal (in some operators it may be written as !=)</li>
+  <li><code class="language-plaintext highlighter-rouge">&gt;</code> greater than</li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;</code> less than</li>
+  <li><code class="language-plaintext highlighter-rouge">&gt;=</code> greater than or equal</li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;=</code> less than or equal to</li>
+  <li><code class="language-plaintext highlighter-rouge">BETWEEN</code> between aan inclusive range
+    <ul>
+      <li>You need to specific the range (e.g., WHERE columnName BETWEEN value1 AND value2;)</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">IS NULL</code> is a null value</li>
+</ol>
+
+<h2 id="22-advanced-filtering-in-or-not">2.2 Advanced Filtering: IN, OR, NOT</h2>
+</section>
+            </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div></div>
+    </div>
+</div>
+
+<!-- introduce mathjax support -->
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [ ['$', '$'], ['\\(', '\\)'] ]
+  },
+  svg: {
+    fontCache: 'global'
+  }
+};
+</script>
+<script
+  type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+
+
+<!-- introduce per-page mermaid support -->
+
+
+<!-- introduce mathjax support -->
+<script>
+    function fixes_chrome_anchors() {
+        let chrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+        if (window.location.hash && chrome) {
+            setTimeout(function () {
+                var hash = window.location.hash;
+                window.location.hash = "";
+                window.location.hash = hash;
+            }, 300);
+        }
+    }
+
+    if (document.readyState === "loading") {
+        // Loading hasn't finished yet
+        document.addEventListener("DOMContentLoaded", fixes_chrome_anchors);
+    } else {
+        // `DOMContentLoaded` has already fired
+        fixes_chrome_anchors();
+    }
+</script>
+
+
+                        <a href="/" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Kartik's Notebook">
+                            <i class="fa fa-angle-left"></i>
+                        </a>
+                    
+
+                    
+                </div>
+            </div>
+
+            <script>
+            var gitbook = gitbook || [];
+            gitbook.push(function() {
+                gitbook.page.hasChanged({
+    "page": {
+        "title": "Introduction",
+        "level": "1.1",
+        "depth": 1,
+        
+        "dir": "ltr"
+    },    "config": {
+        "plugins": ["fontsettings", "highlight", "livereload", "lunr", "search", "sharing", "theme-default", "livereload"],
+        "styles": {
+            "ebook": "styles/ebook.css",
+            "epub": "styles/epub.css",
+            "mobi": "styles/mobi.css",
+            "pdf": "styles/pdf.css",
+            "print": "styles/print.css",
+            "website": "styles/website.css"
+        },
+        "pluginsConfig": {
+            "fontsettings": {
+                "family": "sans",
+                "size": 2,
+                "theme": "white"
+            },
+            "highlight": {},
+            "livereload": {},
+            "lunr": {
+                "ignoreSpecialCharacters": false,
+                "maxIndexSize": 1000000
+            },
+            "search": {},            "sharing": {
+                "facebook": true,
+
+                "google": false,
+
+                "github": true,
+              
+                "github_link": "https://github.com",
+              
+
+                "telegram": false,
+                "telegram_link": "https://t.me",
+
+                "instapaper": false,
+
+                "twitter": true,
+              
+
+                "vk": false,
+
+                "weibo": false,
+
+                "all": ["facebook", "google", "twitter", "weibo", "instapaper", "github", "telegram"]
+            },
+"theme-default": {
+                "showLevel": false,
+                "styles": {
+                    "ebook": "styles/ebook.css",
+                    "epub": "styles/epub.css",
+                    "mobi": "styles/mobi.css",
+                    "pdf": "styles/pdf.css",
+                    "print": "styles/print.css",
+                    "website": "styles/website.css"
+                }
+            }
+        },
+        "theme": "default",
+        "author": "Tao He",
+        "pdf": {
+            "pageNumbers": true,
+            "fontSize": 12,
+            "fontFamily": "Arial",
+            "paperSize": "a4",
+            "chapterMark": "pagebreak",
+            "pageBreaksBefore": "/",
+            "margin": {
+                "right": 62,
+                "left": 62,
+                "top": 56,
+                "bottom": 56
+            }
+        },
+        "structure": {
+            "langs": "LANGS.md",
+            "readme": "README.md",
+        },
+        "variables": {},
+        "title": "Kartik's Notebook",
+        "language": "en",
+        "gitbook": "*"
+    },
+    "file": {
+        "path": "_posts/2024-01-05-SQL.md",
+        "mtime": "2024-01-05 00:00:00 -0500",
+        "type": "markdown"
+    },
+    "gitbook": {
+        "version": "3.2.3",
+        "time": "2024-01-06 11:10:02 -0500"
+    },
+    "basePath": "",
+    "book": {
+        "language": ""
+    }
+});
+            });
+            </script>
+        </div><script src="/assets/gitbook/gitbook.js"></script>
+<script src="/assets/gitbook/theme.js"></script>
+
+<script src="/assets/gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+<script src="/assets/gitbook/gitbook-plugin-sharing/buttons.js"></script>
+
+<!-- <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+<script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+<script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+<script src="../gitbook/gitbook-plugin-search/search.js"></script> -->
+
+<script src="/assets/gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+<script src="/assets/gitbook/gitbook-plugin-search-pro/search.js"></script>
+<script src="/assets/gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+<script src="/assets/gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+
+</body>
+</html>
