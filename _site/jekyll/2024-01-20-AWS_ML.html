@@ -1,0 +1,691 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head><meta charset="UTF-8">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"><title>Introduction to Machine Learning on AWS · Kartik&#39;s Notebook</title><meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="description" content="Offload the brain.
+"><meta name="generator" content="Jekyll (using style of GitBook 3.2.3)"><meta name="author" content="Kartik Pradeepan"><link rel="stylesheet" href="/assets/gitbook/style.css">
+<link rel="stylesheet" href="/assets/gitbook/gitbook-plugin-fontsettings/website.css">
+<link rel="stylesheet" href="/assets/gitbook/gitbook-plugin-search-pro/search.css">
+<link rel="stylesheet" href="/assets/gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+
+<link rel="stylesheet" href="/assets/gitbook/rouge/colorful.css">
+
+<link rel="stylesheet" href="/assets/gitbook/custom.css">
+<link rel="stylesheet" href="/assets/gitbook/custom-local.css">
+
+<meta name="HandheldFriendly" content="true"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="/assets/gitbook/images/apple-touch-icon-precomposed-152.png">
+<link rel="shortcut icon" href="//assets/gitbook/images/favicon.ico" type="image/x-icon">
+
+
+
+
+            <link rel="prev" href="/jekyll/2024-01-05-SQL.html" />
+        
+
+        
+    </head>
+    <body>
+        <div class="book"><div class="book-summary">
+    <script type="text/javascript">
+        // Fixes the page links scroll problem on both desktop and mobile browsers
+        function pageScrollToTop(element) {
+            // both mobile and non-mobile
+            $('div.body-inner').animate({scrollTop: 0});
+            $(element).parent().find('li>ul>li').removeClass('active');
+            return true;  // propagate
+        }
+        // Fixes the anchor links scroll problem on mobile browsers
+        function mobilePageScrollToAnchor(element) {
+            $(element).closest('li.chapter').find('ul>li').removeClass('active');
+            $(element).parent().addClass('active');
+            if ($(document).width() <= 1240) {
+                $('div.body-inner').animate({scrollTop: $($(element).attr('href')).get(0).offsetTop});
+            }
+            return true;
+        }
+    </script>
+
+    <nav role="navigation">
+        <div id="book-search-input" role="search">
+            <input type="text" placeholder="Type to search" />
+        </div>
+        <div id="book-search-input-link" role="search">
+            <a href="/assets/search.html">Click to Search</a>
+        </div>
+        <ul class="summary">
+            
+            <li class="chapter" data-level="1.1" data-path="">
+            
+                <a href="/" onclick="pageScrollToTop(this)">
+                    Kartik&#39;s Notebook
+                </a>
+            </li>
+
+            <li class="divider"></li>
+
+            
+                <!-- <p>pages</p> -->
+                
+                    
+
+                    
+                        
+                        <li class="chapter" data-level="1.1" data-path="/pages/about/">
+                        
+                            <a href="/pages/about/" onclick="pageScrollToTop(this)">
+                                About
+                            </a>
+                            
+                                
+                            
+                        </li>
+                    
+                        
+                        <li class="chapter" data-level="1.1" data-path="/pages/contact/">
+                        
+                            <a href="/pages/contact/" onclick="pageScrollToTop(this)">
+                                Contact
+                            </a>
+                            
+                                
+                            
+                        </li>
+                    
+                        
+                        <li class="chapter" data-level="1.1" data-path="/pages/design/draft/">
+                        
+                            <a href="/pages/design/draft/" onclick="pageScrollToTop(this)">
+                                Design Draft
+                            </a>
+                            
+                                
+                            
+                        </li>
+                    
+
+                    
+                        <li class="divider"></li>
+                    
+                
+            
+                <!-- <p>posts</p> -->
+                
+                    
+
+                    
+                        
+                        <li class="chapter" data-level="1.1" data-path="/jekyll/2024-01-05-SQL.html">
+                        
+                            <a href="/jekyll/2024-01-05-SQL.html" onclick="pageScrollToTop(this)">
+                                SQL
+                            </a>
+                            
+                                
+                            
+                        </li>
+                    
+                        
+                        <li class="chapter active" data-level="1.2" data-path="/jekyll/2024-01-20-AWS_ML.html">
+                        
+                            <a href="/jekyll/2024-01-20-AWS_ML.html" onclick="pageScrollToTop(this)">
+                                Introduction to Machine Learning on AWS
+                            </a>
+                            
+                                
+                                    <ul><li><a href="#amazon-rekegnition" onclick="mobilePageScrollToAnchor(this)" >Amazon Rekegnition</a></li><li><a href="#amazon-textract" onclick="mobilePageScrollToAnchor(this)" >Amazon Textract</a></li><li><a href="#amazon-comprehend" onclick="mobilePageScrollToAnchor(this)" >Amazon Comprehend</a></li><li><a href="#amazon-transcribe" onclick="mobilePageScrollToAnchor(this)" >Amazon Transcribe</a></li><li><a href="#amazon-translate" onclick="mobilePageScrollToAnchor(this)" >Amazon Translate</a></li><li><a href="#amazon-lex" onclick="mobilePageScrollToAnchor(this)" >Amazon Lex</a></li><li><a href="#amazon-sagemaker" onclick="mobilePageScrollToAnchor(this)" >Amazon SageMaker</a></li></ul>
+
+                                
+                            
+                        </li>
+                    
+
+                    
+                        <li class="divider"></li>
+                    
+                
+            
+        </ul>
+    </nav>
+</div>
+<div class="book-body">
+                <div class="book-header" role="navigation">
+                    <!-- Title -->
+                    <h1>
+                        <i class="fa fa-circle-o-notch fa-spin"></i>
+                        
+                            <a href="." >Introduction to Machine Learning on AWS</a>
+                        
+                    </h1>
+                </div>
+
+                <div class="body-inner"><div class="page-wrapper" tabindex="-1" role="main">
+    
+
+    <div class="page-inner">
+        <div id="book-search-results">
+            <div class="search-noresults">
+                <section class="normal markdown-section">
+                    
+                        <h1 id="/jekyll/AWS_ML">Introduction to Machine Learning on AWS</h1>
+                    
+
+                    <p>Artificial intelligence is the larger field of study using computers to do processes generally done by the human brain.</p>
+
+<p>Machine learning is a subset of artificial inteilligence where we work on algorithms that are able to learn from a set of training data.</p>
+
+<p>Deep learning is a subset of machine learning that uses multilayer networks to build a model closer to a human brain.</p>
+
+<p>All AI systems have three parts:
+1) Training: supply training data to an algorithm
+1) Model: Receive an output of the training process
+1) Inference and hosting: use the model to make a prediction</p>
+
+<p>All AWS services are exposed to each other via APIs that can be communicated via SDKs.</p>
+
+<p>Amazon has a number of different ML services:
+1) Amazon Rekognition: computer vision
+1) Amazon Textract: automated text extraction and analysis
+1) Amazon Comprehend: natural language processing
+1) Amazon Transcribe: speech to text
+1) Amazon Translate: machine langauge translation
+1) Amazon Lex: chat bots and virtual agents
+1) Amazon Sagemaker: build, train, and deploy your own machine learning models on managed infrastracture.</p>
+
+<h1 id="amazon-rekegnition">Amazon Rekegnition</h1>
+
+<ul>
+  <li>Fully managed deep-learning image-recognition service.</li>
+  <li>Designed for scalability.</li>
+  <li>Capabilities: Recognizes scenes, objects, concepts, faces.</li>
+</ul>
+
+<p><strong>Key Features</strong>:</p>
+<ul>
+  <li>Uses pretrained models.</li>
+  <li>APIs provide inferences from these models.</li>
+  <li>Detects labels, faces, texts, and specific content like moderation labels and protective equipment in images.</li>
+</ul>
+
+<p><strong>API Examples</strong>:</p>
+<ul>
+  <li><strong>CompareFaces</strong>: Matches faces between a source and target image.</li>
+  <li><strong>DetectFaces</strong>: Identifies faces and provides details like age range, presence of smile, etc.</li>
+  <li><strong>DetectLabels</strong>: Identifies objects, events, concepts, with a confidence score.</li>
+  <li><strong>DetectModerationLabels</strong>: Finds potentially sensitive content.</li>
+  <li><strong>DetectProtectiveEquipment</strong>: Identifies face, hand, and head covers.</li>
+  <li><strong>DetectText</strong>: Recognizes text in an image.</li>
+  <li><strong>Celebrity Recognition</strong>: Identifies celebrities in images.</li>
+</ul>
+
+<p><strong>Video Content Analysis</strong>:</p>
+<ul>
+  <li>Similar operations on stored video content.</li>
+  <li>Video-specific APIs for segment detection, person tracking, etc.</li>
+</ul>
+
+<p><strong>Collections of Faces APIs</strong>:</p>
+<ul>
+  <li><strong>CreateCollection</strong>: Creates a collection of faces.</li>
+  <li><strong>IndexFaces</strong>: Populates a collection with detected faces.</li>
+  <li><strong>Search by Face ID or Image</strong>: Finds matching faces in a collection.</li>
+</ul>
+
+<p><strong>Custom Training and Custom Labels</strong>:</p>
+<ul>
+  <li>Ability to train Rekognition with user’s labeled datasets.</li>
+  <li><strong>CreateDataset</strong> and <strong>DetectCustomLabels</strong>: User can create and use custom models for specific recognition tasks.</li>
+</ul>
+
+<p><strong>Applications</strong>:</p>
+<ul>
+  <li>Image search indexing (e.g., vacation rental photos with beach scenes).</li>
+  <li>Automating detection of missing parts in factory assembly lines.</li>
+  <li>Brand logo recognition in online videos.</li>
+</ul>
+
+<h1 id="amazon-textract">Amazon Textract</h1>
+<ul>
+  <li>Fully managed service for analyzing documents.</li>
+  <li>Extracts text and structure, including handwritten documents.</li>
+  <li>Built on AWS-trained models.</li>
+</ul>
+
+<p><strong>Available APIs</strong>:</p>
+<ul>
+  <li><strong>AnalyzeDocument</strong>: Analyzes specific features like tables, forms, queries.</li>
+  <li><strong>AnalyzeExpense</strong>: Processes expenses from receipts or invoices.</li>
+  <li><strong>DetectDocumentText</strong>: Identifies text within a document.</li>
+  <li><strong>AnalyzeID</strong>: Extracts information from identity documents like driver’s licenses.</li>
+  <li>Asynchronous operation: Start API (begins process, returns job ID), Get API (retrieves status/results).</li>
+</ul>
+
+<p><strong>API Responses</strong>:</p>
+<ul>
+  <li><strong>AnalyzeDocument</strong>: Returns JSON data structure with blocks (page, line, word, key-value sets).</li>
+  <li><strong>AnalyzeExpense</strong>: Identifies vendor, sales information from expenses.</li>
+  <li><strong>DetectDocumentText</strong>: Provides blocks of text, lines, and words.</li>
+  <li><strong>AnalyzeID</strong>: Extracts details from identity documents.</li>
+</ul>
+
+<p><strong>Practical Use Case</strong>:</p>
+<ul>
+  <li>Handwritten movie reviews: determine which API to use for extraction.</li>
+  <li>Focus on extracting text and structured data from documents.</li>
+</ul>
+
+<h1 id="amazon-comprehend">Amazon Comprehend</h1>
+<ul>
+  <li>Natural-language-processing machine learning service.</li>
+  <li>Extracts insights and connections from text.</li>
+  <li>Offers both pre-trained Amazon models and custom model training.</li>
+</ul>
+
+<p><strong>APIs for Language and Entity Detection</strong>:</p>
+<ul>
+  <li><strong>Detect-Dominant-Language</strong>: Real-time and batch processing for language detection.</li>
+  <li><strong>Batch-Detect-Dominant-Language</strong>: For batch analysis of up to 25 documents.</li>
+  <li><strong>Start-Dominant-Language-Detection-Job</strong>: Asynchronous batch processing with S3 input/output.</li>
+  <li><strong>Detect Named Entities</strong>: Identifies entities like persons, organizations in text.</li>
+  <li><strong>Detect Key Noun Phrases</strong>: Finds important noun phrases in text.</li>
+  <li><strong>Detect Personally Identifying Information</strong>: Identifies and redacts sensitive information.</li>
+</ul>
+
+<p><strong>Sentiment Analysis API</strong>:</p>
+<ul>
+  <li><strong>Detect-Sentiment</strong>: Determines text sentiment (e.g., positive, negative).</li>
+</ul>
+
+<p><strong>Custom Model APIs</strong>:</p>
+<ul>
+  <li><strong>Custom Classification</strong>: Classifies documents using custom labels.</li>
+  <li><strong>Custom Entity Recognizer</strong>: Recognizes custom-defined entities in text.</li>
+  <li><strong>Start-Document-Classification-Job</strong> and <strong>Start-Entities-Detection-Job</strong>: Asynchronous processing with custom models.</li>
+  <li><strong>Classify-Document</strong> and <strong>Detect-Entities</strong>: Real-time processing with purchased endpoints for custom models.</li>
+</ul>
+
+<p><strong>Additional APIs and Features</strong>:</p>
+<ul>
+  <li>Event detection and topic detection.</li>
+  <li>
+    <p>Detailed AWS Documentation available for more information.</p>
+  </li>
+  <li><strong>Practical Use Case Scenario</strong>:
+    <ul>
+      <li>Analyzing movie preview forms for audience sentiment.</li>
+      <li>Integrating sentiment analysis with demographic analytics.</li>
+    </ul>
+
+    <h1 id="amazon-transcribe">Amazon Transcribe</h1>
+    <ul>
+      <li>Converts speech to text.</li>
+      <li>Utilizes trained models for transcription subtleties.</li>
+      <li>Supports 37 languages (as of publishing).</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>Transcription Complexity</strong>:</p>
+<ul>
+  <li>Complex mapping from spoken word to text.</li>
+  <li>Examples: Currency and date formats.</li>
+</ul>
+
+<p><strong>Transcription APIs</strong>:</p>
+<ul>
+  <li><strong>StartTranscriptionJob</strong>: Batch processing with media file input.</li>
+  <li><strong>GetTranscriptionJob</strong>: Retrieves results and status of transcription jobs.</li>
+  <li><strong>StartStreamTranscription</strong>: Real-time transcription for streaming media.</li>
+</ul>
+
+<p>Improving Transcription Accuracy**:</p>
+<ul>
+  <li><strong>Custom Vocabulary</strong>: Enhance transcription of unique terms (e.g., brand names, technical terms).</li>
+  <li><strong>Custom-Language Model</strong>: Train with domain-specific text for context recognition.</li>
+</ul>
+
+<p><strong>Vocabulary Management</strong>:</p>
+<ul>
+  <li><strong>Vocabulary Filter</strong>: Masks or filters specific words (e.g., offensive language).</li>
+  <li><strong>Content Redaction</strong>: Automatic masking/removal of sensitive information (e.g., credit card numbers).</li>
+</ul>
+
+<p><strong>Additional Features</strong>:</p>
+<ul>
+  <li><strong>Language Identification</strong>: Detects language of the media file.</li>
+  <li><strong>Speaker Diarization</strong>: Identifies different speakers in a media file.</li>
+</ul>
+
+<p><strong>Specialized Use Cases</strong>:</p>
+<ul>
+  <li>Medical and call-center analytics.</li>
+  <li>Detailed information in AWS Documentation.</li>
+</ul>
+
+<p><strong>Practical Application</strong>:</p>
+<ul>
+  <li>Suitable for diverse scenarios, from everyday conversations to technical and domain-specific dialogues.</li>
+</ul>
+
+<h1 id="amazon-translate">Amazon Translate</h1>
+<ul>
+  <li>Service for text translation between different languages.</li>
+  <li>Supports 75 languages (as of course creation).</li>
+</ul>
+
+<p><strong>APIs for Translation</strong>:</p>
+<ul>
+  <li><strong>TranslateText</strong>: Real-time text translation.</li>
+  <li><strong>StartTextTranslationJob</strong>: Asynchronous batch translation.</li>
+  <li><strong>DescribeTextTranslationJob</strong>: Checks status and results of batch translation jobs.</li>
+</ul>
+
+<p><strong>Customization Options</strong>:</p>
+<ul>
+  <li>Formality setting: Adjusts translation for formal or informal language (supported in French, German, Hindi, Italian, Japanese, Spanish).</li>
+  <li>Profanity replacement: Uses grawlix strings for profane words/phrases.</li>
+  <li>Custom terminology: Control translations of specific terms, unidirectional or multidirectional.</li>
+  <li>Non-translated text tags: Use tags like <code class="language-plaintext highlighter-rouge">&lt;span&gt;</code> or <code class="language-plaintext highlighter-rouge">&lt;p&gt;</code> with <code class="language-plaintext highlighter-rouge">translate=no</code> property to exclude text from translation.</li>
+  <li>Parallel data: Customize translation output for specific domains (e.g., life sciences, law, finance).</li>
+</ul>
+
+<p><strong>Practical Use</strong>:</p>
+<ul>
+  <li>Simple translations with additional control over translation quality, style, and domain-specific language.</li>
+</ul>
+
+<h1 id="amazon-lex">Amazon Lex</h1>
+<ul>
+  <li>Conversational interface supporting voice and text-chat.</li>
+  <li>Utilizes Alexa’s conversational engine.</li>
+  <li>Fully managed service with automatic scaling, backup, and versioning.</li>
+</ul>
+
+<p><strong>Conversation Example</strong>: Booking a car.</p>
+<ul>
+  <li>Key elements: Destination city and departure date.</li>
+</ul>
+
+<p><strong>Bot Configuration in Amazon Lex</strong>:</p>
+<ul>
+  <li><strong>Intents</strong>: Tasks to complete via conversation (e.g., BookCar).</li>
+  <li><strong>Utterances</strong>: Phrases triggering an intent.</li>
+  <li><strong>Slots</strong>: Parameters required to fulfill an intent.</li>
+  <li><strong>Prompts</strong>: Questions eliciting slot responses.</li>
+</ul>
+
+<p><strong>Intent Configuration</strong>:</p>
+<ul>
+  <li><strong>PromptSpecification</strong>: Message confirming intent completion.</li>
+  <li><strong>DeclinationResponse</strong>: Used if user refuses promptSpecification.</li>
+  <li><strong>DialogCodeHook</strong>: AWS Lambda function for additional conversational logic.</li>
+  <li><strong>FulfillmentCodeHook</strong>: Passes completed intent to a Lambda function for processing or local device actions.</li>
+</ul>
+
+<p><strong>Slot Types</strong>:</p>
+<ul>
+  <li>Defined questions for user response.</li>
+  <li>EnumerationValues for training or validation.</li>
+  <li>Two modes: Expand values (training data) or restrict to set values (validation).</li>
+</ul>
+
+<p><strong>Built-in Intents and Slot Types</strong>:</p>
+<ul>
+  <li>Common intents (e.g., HelpIntent, CancelIntent) and slot types (e.g., dates, numbers) pre-configured.</li>
+</ul>
+
+<p><strong>Integration with External Systems</strong>:</p>
+<ul>
+  <li>Customization of user interactions.</li>
+  <li>Integration with databases or external systems via Lambda functions.</li>
+  <li><strong>DialogCodeHook</strong>: Initialization and validation.</li>
+  <li><strong>FulfillmentCodeHook</strong>: Post-intent processing and direction.</li>
+</ul>
+
+<p><strong>Lambda Function Integration</strong>:</p>
+<ul>
+  <li>Receives context (bot, intent, slots) for processing.</li>
+  <li>Directs Lex for next steps using dialog actions (e.g., Close, ConfirmIntent, Delegate, ElicitIntent, ElicitSlot).</li>
+</ul>
+
+<h1 id="amazon-sagemaker">Amazon SageMaker</h1>
+<ul>
+  <li>Designed for preparing, building, training, and deploying machine learning models.</li>
+  <li>Offers fine control over model creation and deployment.</li>
+</ul>
+
+<p><strong>Jupyter Notebooks in SageMaker</strong>:</p>
+<ul>
+  <li>Interactive environment for code, documentation, and visualizations.</li>
+  <li>Supports data preparation, visualization, training, and deploying models.</li>
+  <li>Can clone and run notebooks from GitHub.</li>
+</ul>
+
+<p><strong>Training a Model in SageMaker</strong>:</p>
+<ul>
+  <li>Variety of algorithms available: SageMaker-provided, custom, or from AWS Marketplace.</li>
+  <li>Custom algorithms via Docker containers.</li>
+  <li>Selection of training instance types (standard, compute-optimized, GPU-accelerated).</li>
+  <li>Hyperparameter tuning for algorithm optimization.</li>
+  <li>Input data channels from S3 or EFS, format depends on the algorithm.</li>
+</ul>
+
+<p><strong>AWS Marketplace</strong>:</p>
+<ul>
+  <li>Buy or sell trained models and algorithms.</li>
+  <li>Marketplace offers pre-trained models or algorithms for training.</li>
+</ul>
+
+<p><strong>Hosting Models for Inferences</strong>:</p>
+<ul>
+  <li><strong>Real-Time Inference</strong>: API endpoint for real-time model access.</li>
+  <li><strong>Serverless Inference</strong>: Cost-effective for infrequent or unpredictable traffic.</li>
+  <li><strong>Asynchronous Endpoint</strong>: Queues requests for processing with large payloads/long processing times.</li>
+  <li><strong>Batch Transformation</strong>: Process data in batches without a long-lived endpoint.</li>
+</ul>
+
+<p><strong>Practical Applications</strong>:</p>
+<ul>
+  <li>Real-time applications like fraud detection.</li>
+  <li>Batch processing for non-real-time requirements.</li>
+</ul>
+
+<p><strong>Further Learning in SageMaker</strong>:</p>
+<ul>
+  <li>Advanced machine learning capabilities for deeper exploration.</li>
+</ul>
+</section>
+            </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div></div>
+    </div>
+</div>
+
+<!-- introduce mathjax support -->
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [ ['$', '$'], ['\\(', '\\)'] ]
+  },
+  svg: {
+    fontCache: 'global'
+  }
+};
+</script>
+<script
+  type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+
+
+<!-- introduce per-page mermaid support -->
+
+
+<!-- introduce mathjax support -->
+<script>
+    function fixes_chrome_anchors() {
+        let chrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+        if (window.location.hash && chrome) {
+            setTimeout(function () {
+                var hash = window.location.hash;
+                window.location.hash = "";
+                window.location.hash = hash;
+            }, 300);
+        }
+    }
+
+    if (document.readyState === "loading") {
+        // Loading hasn't finished yet
+        document.addEventListener("DOMContentLoaded", fixes_chrome_anchors);
+    } else {
+        // `DOMContentLoaded` has already fired
+        fixes_chrome_anchors();
+    }
+</script>
+
+
+                        <a href="/jekyll/2024-01-05-SQL.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: SQL">
+                            <i class="fa fa-angle-left"></i>
+                        </a>
+                    
+
+                    
+                </div>
+            </div>
+
+            <script>
+            var gitbook = gitbook || [];
+            gitbook.push(function() {
+                gitbook.page.hasChanged({
+    "page": {
+        "title": "Introduction",
+        "level": "1.1",
+        "depth": 1,
+        
+        "dir": "ltr"
+    },    "config": {
+        "plugins": ["fontsettings", "highlight", "livereload", "lunr", "search", "sharing", "theme-default", "livereload"],
+        "styles": {
+            "ebook": "styles/ebook.css",
+            "epub": "styles/epub.css",
+            "mobi": "styles/mobi.css",
+            "pdf": "styles/pdf.css",
+            "print": "styles/print.css",
+            "website": "styles/website.css"
+        },
+        "pluginsConfig": {
+            "fontsettings": {
+                "family": "sans",
+                "size": 2,
+                "theme": "white"
+            },
+            "highlight": {},
+            "livereload": {},
+            "lunr": {
+                "ignoreSpecialCharacters": false,
+                "maxIndexSize": 1000000
+            },
+            "search": {},            "sharing": {
+                "facebook": true,
+
+                "google": false,
+
+                "github": true,
+              
+                "github_link": "https://github.com",
+              
+
+                "telegram": false,
+                "telegram_link": "https://t.me",
+
+                "instapaper": false,
+
+                "twitter": true,
+              
+
+                "vk": false,
+
+                "weibo": false,
+
+                "all": ["facebook", "google", "twitter", "weibo", "instapaper", "github", "telegram"]
+            },
+"theme-default": {
+                "showLevel": false,
+                "styles": {
+                    "ebook": "styles/ebook.css",
+                    "epub": "styles/epub.css",
+                    "mobi": "styles/mobi.css",
+                    "pdf": "styles/pdf.css",
+                    "print": "styles/print.css",
+                    "website": "styles/website.css"
+                }
+            }
+        },
+        "theme": "default",
+        "author": "Tao He",
+        "pdf": {
+            "pageNumbers": true,
+            "fontSize": 12,
+            "fontFamily": "Arial",
+            "paperSize": "a4",
+            "chapterMark": "pagebreak",
+            "pageBreaksBefore": "/",
+            "margin": {
+                "right": 62,
+                "left": 62,
+                "top": 56,
+                "bottom": 56
+            }
+        },
+        "structure": {
+            "langs": "LANGS.md",
+            "readme": "README.md",
+        },
+        "variables": {},
+        "title": "Kartik's Notebook",
+        "language": "en",
+        "gitbook": "*"
+    },
+    "file": {
+        "path": "_posts/2024-01-05-AWS_ML.md",
+        "mtime": "2024-01-20 00:00:00 -0500",
+        "type": "markdown"
+    },
+    "gitbook": {
+        "version": "3.2.3",
+        "time": "2024-01-23 09:56:15 -0500"
+    },
+    "basePath": "",
+    "book": {
+        "language": ""
+    }
+});
+            });
+            </script>
+        </div><script src="/assets/gitbook/gitbook.js"></script>
+<script src="/assets/gitbook/theme.js"></script>
+
+<script src="/assets/gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+<script src="/assets/gitbook/gitbook-plugin-sharing/buttons.js"></script>
+
+<!-- <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+<script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+<script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+<script src="../gitbook/gitbook-plugin-search/search.js"></script> -->
+
+<script src="/assets/gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+<script src="/assets/gitbook/gitbook-plugin-search-pro/search.js"></script>
+<script src="/assets/gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+<script src="/assets/gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+
+</body>
+</html>
